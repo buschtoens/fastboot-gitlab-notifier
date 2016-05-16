@@ -1,5 +1,19 @@
 ## FastBoot GitLab Notifier
 
+[![Latest NPM release][npm-badge]][npm-badge-url]
+[![Dependency Status][dependency-badge]][dependency-badge-url]
+[![TravisCI Build Status][travis-badge]][travis-badge-url]
+[![Code Climate][codeclimate-badge]][codeclimate-badge-url]
+
+[npm-badge]: https://img.shields.io/npm/v/fastboot-gitlab-notifier.svg
+[npm-badge-url]: https://www.npmjs.com/package/fastboot-gitlab-notifier
+[dependency-badge]: https://img.shields.io/david/buschtoens/fastboot-gitlab-notifier.svg
+[dependency-badge-url]: https://david-dm.org/buschtoens/fastboot-gitlab-notifier
+[travis-badge]: https://img.shields.io/travis/buschtoens/fastboot-gitlab-notifier/master.svg?label=TravisCI
+[travis-badge-url]: https://travis-ci.org/buschtoens/fastboot-gitlab-notifier
+[codeclimate-badge]: https://img.shields.io/codeclimate/github/buschtoens/fastboot-gitlab-notifier.svg
+[codeclimate-badge-url]: https://codeclimate.com/github/buschtoens/fastboot-gitlab-notifier
+
 This notifier for the [FastBoot App Server][app-server] works with GitLab Builds
 to poll for new successful builds for a specified ref / branch.
 
