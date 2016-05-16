@@ -1,19 +1,24 @@
-## FastBoot S3 Notifier
+## FastBoot GitLab Notifier
 
-This notifier for the [FastBoot App Server][app-server] works with AWS
-S3 to poll an object's Last Modified header to detect when you have
-deployed a new version of your app.
+This notifier for the [FastBoot App Server][app-server] works with GitLab Builds
+to poll for new successful builds for a specified ref / branch.
 
 [app-server]: https://github.com/ember-fastboot/fastboot-app-server
 
-To use the notifier, configure it with an S3 bucket and key:
+To use the notifier, configure it with your GitLab API token and your repo:
 
 ```js
-const S3Notifier = require('fastboot-s3-notifier');
+const FastBootAppServer = require('fastboot-app-server');
+const GitLabNotifier    = require('fastboot-gitlab-notifier');
 
-let notifier = new S3Notifier({
-  bucket: S3_BUCKET,
-  key: S3_KEY
+let notifier = new GitLabNotifier({
+  url:   'http://gitlab.example.com',
+  token: '0123456789abcdefghij'
+
+  project: 'buschtoens/fastboot-test-app', // or numeric project id
+  ref:     'master'                        // optional, defaults to 'master'
+
+  poll: 3 * 1000 // optional polling interval, defaults to 3 * 1000
 });
 
 let server = new FastBootAppServer({
@@ -21,17 +26,13 @@ let server = new FastBootAppServer({
 });
 ```
 
-When the notifier starts, it will poll the object at the specified
-bucket and key. Once the `LastModified` metadata changes, it will tell
-the FastBoot App Server to fetch the latest version of the app.
-
-Note that you should point the notifier at a _static_ path on S3, like
-`fastboot-deploy-info.json`. That JSON file should then point the app
-server to the latest application bundle. This way, you don't have to
-propagate configuration changes to all of your app servers, and they can
-poll a single key in perpetuity.
+When the notifier starts, it will poll the API for the specified repository and
+ref. Once a new successful build is found, it will tell the FastBoot App Server
+to fetch the latest version of the app.
 
 If you like this, you may also be interested in the companion
-[fastboot-s3-downloader](https://github.com/tomdale/fastboot-s3-downloader),
-which parses the above-described JSON file to find and download the
-latest version of your app.
+[fastboot-gitlab-downloader](https://github.com/buschtoens/fastboot-gitlab-downloader),
+which downloads the most recent build artifact for the specified ref.
+
+You might also like [fastboot-gitlab-app-server](https://github.com/buschtoens/fastboot-gitlab-app-server), a pre-made and optionally dockerized FastBoot App Server that uses the GitLab
+notifier and downloader.

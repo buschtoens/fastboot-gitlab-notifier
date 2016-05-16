@@ -1,28 +1,28 @@
 {
-  "name": "fastboot-s3-notifier",
-  "version": "0.1.1",
-  "description": "A FastBoot App Server notifier for AWS S3",
+  "name": "fastboot-gitlab-notifier",
+  "version": "0.0.0",
+  "description": "A FastBoot App Server notifier for GitLab build artifacts",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomdale/fastboot-s3-notifier.git"
+    "url": "git+https://github.com/buschtoens/fastboot-gitlab-notifier.git"
   },
   "keywords": [
     "ember",
     "fastboot",
     "notifier",
-    "s3"
+    "gitlab"
   ],
-  "author": "Tom Dale <tom@tomdale.net>",
+  "author": "Jan Buschtöns <buschtoens@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tomdale/fastboot-s3-notifier/issues"
+    "url": "https://github.com/buschtoens/fastboot-gitlab-notifier/issues"
   },
-  "homepage": "https://github.com/tomdale/fastboot-s3-notifier#readme",
+  "homepage": "https://github.com/buschtoens/fastboot-gitlab-notifier#readme",
   "dependencies": {
-    "aws-sdk": "^2.3.4"
+    "request-promise": "^3.6.0"
   }
 }
