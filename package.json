@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/buschtoens/fastboot-gitlab-notifier#readme",
   "dependencies": {
-    "request-promise": "^3.6.0"
+    "request-promise": "^4.1.1"
   }
 }
